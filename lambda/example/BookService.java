@@ -4,7 +4,8 @@ import java.util.List;
 public class BookService {
 	public List<Book> getBooksinSort() {
 		List<Book> books = new BookDAO().getBooks();
-		Collections.sort(books, (o1, o2) -> o1.getName().compareTo(o2.getName()));
+		//Collections.sort(books, (o1, o2) -> o1.getName().compareTo(o2.getName()));
+		books.sort(Comparator.comparing(Book::getName));
 		return books;
 	}
 
